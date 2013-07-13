@@ -4,6 +4,8 @@
     <title>Poker App</title>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./js/Player.js"> </script>
+    <script src="./js/Game.js"> </script>
     <script src="./js/script.js"> </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -31,21 +33,15 @@
     </div>
     <div class="container">
         <div class="pre-game">
-            <div class="players">
-                <div class="row">
-                    <div class="span6">
-                        <input type="text" class="player-name" />
-                    </div>
-                    <div class="span5">
-                        <input type="number" class="player-chips" />
-                    </div>
-                    <div class="span1">
-                        <a href="#" class="btn btn-block btn-danger remove-player"><i class="icon-remove icon-white"></i></a>
-                    </div>
+            <div class="players"></div>
+            <div class="row">
+                <div class="span6">
+                    <a href="#" class="btn btn-large btn-block btn-success add-player">Add New Player <i class="icon-plus icon-white"></i></a>
+                </div>
+                <div class="span6">
+                    <a href="#" class="btn btn-large btn-block btn-info begin-round">Begin Game <i class="icon-play icon-white"></i></a>
                 </div>
             </div>
-            <a href="#" class="btn btn-large btn-block btn-success add-player">Add New Player <i class="icon-plus icon-white"></i></a>
-            <a href="#" class="btn btn-large btn-block btn-info begin-round">Begin Round <i class="icon-play icon-white"></i></a>
         </div>
         <div class="game">
             
