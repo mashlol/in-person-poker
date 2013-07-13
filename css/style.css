@@ -3,3 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+input {
+    height: 40px !important;
+    width: 100%;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.container {
+    padding: 20px 0;
+}
+
+#templates {
+    display: none;
+}
+
+.remove-player {
+    margin-bottom: 10px;
+}
