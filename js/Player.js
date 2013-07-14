@@ -6,6 +6,5 @@
         this.name = name;
     }
 
-
     window.Player = Player;
 })();

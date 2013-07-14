@@ -22,3 +22,11 @@ input {
 .remove-player {
     margin-bottom: 10px;
 }
+
+.game {
+    display: none;
+}
+
+.turn-indicator {
+    font-size: 36px;
+}

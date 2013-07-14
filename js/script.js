@@ -9,12 +9,21 @@ $(function() {
 
     $(".begin-round").click(function() {
         try {
-            var game = new Game();
-            game.start();
+            window.game = new Game();
+            window.game.start();
         } catch (e) {
             alert(e);
         }
     });
 
+    $("body").on("click", ".check-call", function() {
+        window.game.takeAction("checkCall");
+    });
+
+    $("body").on("click", ".bet-raise", function() {
+        window.game.takeAction("betRaise");
+    });
+
+    $(".players").append($("#template-player-row").html());
     $(".players").append($("#template-player-row").html());
 });
