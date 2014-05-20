@@ -7,14 +7,15 @@ $(function() {
         $(this).closest(".row").remove();
     });
 
-    $(".begin-round").click(function() {
-        try {
-            window.game = new Game();
-            window.game.start();
-        } catch (e) {
-            alert(e);
-        }
-    });
+    // $(".begin-round").click(function() {
+//        try {
+            // window.game = new Game();
+            // new GameView($(".game"), window.game);
+//            window.game.start();
+//        } catch (e) {
+//            alert(e);
+//        }
+    // });
 
     $("body").on("click", ".check-call", function() {
         window.game.takeAction("checkCall");

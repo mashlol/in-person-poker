@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <title>Poker App</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="http://backbonejs.org/backbone-min.js"></script>
+    <script src="/omni.js"></script>
+    <script src="./js/Player.js"></script>
+    <script src="./js/Game.js"></script>
+    <script src="./js/GameView.js"></script>
+    <script src="./js/PlayerView.js"></script>
+    <script src="./js/script.js"></script>
+
+    <script src="./js/nice-alert.js"> </script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- <link href="./bootstrap/css/bootstrap.css" rel="stylesheet"> -->
+    <!-- <link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
+    <!-- <link href="./css/flat-ui.css" rel="stylesheet"> -->
+    <link href="./css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="templates">
+        <div id="template-player">
+            <div class="player">
+                <div class="player-name">
+                    Invalid Player
+                </div>
+                <div class="player-balance">
+                    Invalid chip amount
+                </div>
+                <div class="player-dealer">
+                    <i class=""></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="game">
+            <div class="pot"></div>
+            <button class="call-check">Check</button>
+            <button class="bet-check">Check</button>
+        </div>
+        <div class="players">
+        </div>
+    </div>
+</body>
+</html>
