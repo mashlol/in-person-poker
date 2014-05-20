@@ -1,20 +1,26 @@
 (function() {
   var PlayerView = function(player) {
     this.player = player;
+    this.$el = $($("#template-player").html());
 
-    $(".game-players").append($el);
-
+    $(".players").append(this.$el);
     this.render();
     this.player.on("change", this.render.bind(this));
   };
 
   PlayerView.prototype.render = function() {
-    this.$el.find(".game-player-name").html(this.player.name);
-    this.$el.find(".game-player-chips").html(this.player.balance);
-    if (this.player.isDealing) {
-      this.$el.find(".game-player.status").html("Dealer");
+    this.$el.find(".player-name").html(this.player.get("name"));
+    this.$el.find(".player-balance").html(this.player.get("balance"));
+    if (this.player.get("isDealer")) {
+      this.$el.addClass("dealer");
     } else {
-      this.$el.find(".game-player.status").html("");
+      this.$el.removeClass("dealer");
+    }
+
+    if (this.player.get("isActive")) {
+      this.$el.addClass("active");
+    } else {
+      this.$el.removeClass("active");
     }
   };
 

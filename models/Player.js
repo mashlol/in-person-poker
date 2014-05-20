@@ -4,8 +4,8 @@ module.exports = Omni.Model.extend({
 	defaults: {
 		name: "Player",
 		balance: 100,
-		isDealing: false,
-		isTurn: false
+		isDealer: false,
+		isActive: false
 	},
 	readPermission: function() {
 		return true;
