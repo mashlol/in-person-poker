@@ -9,7 +9,13 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 200;
 	font-size: 12px;
+	overflow-y: auto;
 	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+}
+
+body::-webkit-scrollbar {
+	width: 0 !important;
+    display: none !important;
 }
 
 #templates {
@@ -25,6 +31,7 @@ body {
 	color: #fff;
 	line-height: 50px;
 	text-align: center;
+	z-index: 1;
 }
 
 button {
@@ -46,6 +53,17 @@ button {
 	background: #fff;
 	box-shadow: 0 3px 9px -6px #888;
 	margin-bottom: 10px;
+	position: fixed;
+	top: 60px;
+	width: calc(100% - 20px);
+	left: 10px;
+}
+
+.player-header {
+	position: fixed;
+	top: 110px;
+	width: calc(100% - 20px);
+	left: 10px;
 }
 
 .pot:before {
@@ -57,7 +75,6 @@ button {
 .player {
 	padding: 10px;
 	background: #fff;
-	box-shadow: 0 3px 9px -6px #888;
 	height: 42px;
 	border-bottom: 1px solid #ccc;
 }
@@ -106,4 +123,19 @@ button {
 .player.active .player-name {
 	color:  #e74c3c;
 	font-weight: 400;
+}
+
+.players {
+	margin-top: 90px;
+	margin-bottom: 50px;
+}
+
+.bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	background: #eee;
+	height: 150px;
+	width: 100%;
 }
