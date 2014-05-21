@@ -3,6 +3,8 @@
 <head>
     <title>Poker App</title>
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
@@ -31,16 +33,38 @@
                 <div class="player-balance">
                     Invalid chip amount
                 </div>
+                <div class="player-current-bet">
+                    0
+                </div>
+                <div class="player-total-bet">
+                    0
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="game">
-            <div class="pot"></div>
-            <button class="call-check">Check</button>
-            <button class="bet-raise">Bet</button>
-            <div class="players"></div>
+            <div class="header">
+                <div class="title">Poker Manager</div>
+            </div>
+            <div class="body">
+                <div class="pot"></div>
+                <div class="player player-header">
+                        <div class="player-name">Name</div>
+                        <div class="player-balance">Balance</div>
+                        <div class="player-current-bet">Current Bet</div>
+                        <div class="player-total-bet">Total Bet</div>
+                    </div>
+                <div class="players">
+                </div>
+            </div>
+            <div class="footer">
+                <button class="call-check">Check</button>
+                <button class="bet-raise">Bet</button>
+                <button class="fold">Fold</button>
+            </div>
         </div>
+
     </div>
 </body>
 </html>
