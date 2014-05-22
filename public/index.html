@@ -10,8 +10,6 @@
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <script src="http://backbonejs.org/backbone-min.js"></script>
     <script src="/omni.js"></script>
-    <script src="./js/Player.js"></script>
-    <script src="./js/Game.js"></script>
     <script src="./js/GameView.js"></script>
     <script src="./js/PlayerView.js"></script>
     <script src="./js/script.js"></script>
@@ -22,6 +20,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
+    <link href="./css/font-awesome.min.css" rel="stylesheet" />
     <link href="./css/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -47,6 +46,7 @@
         <div class="game">
             <div class="header">
                 <div class="title">Poker Manager</div>
+                <button id="stop-playing"><i class="fa fa-child"></i></button>
             </div>
             <div class="body">
                 <div class="bg"></div>
@@ -61,6 +61,7 @@
                 </div>
             </div>
             <div class="footer">
+                <button class="start-game">Start Game</button>
                 <button class="call-check">Check</button>
                 <button class="bet-raise">Bet</button>
                 <button class="fold">Fold</button>

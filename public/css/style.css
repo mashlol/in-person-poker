@@ -8,7 +8,7 @@ body {
 	background: #eee;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 200;
-	font-size: 12px;
+	font-size: 11px;
 	overflow-y: auto;
 	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 }
@@ -34,10 +34,22 @@ body::-webkit-scrollbar {
 	z-index: 1;
 }
 
+.header #stop-playing {
+  position: fixed;
+  top: 9px;
+  right: 9px;
+  height: 32px;
+  width: 32px;
+  background: none;
+  font-size: 18px;
+  padding: 0;
+  color: #fff;
+}
+
 button {
 	padding: 10px;
 	background: none;
-	border: 2px solid #fff;
+	border: none;
 	color: #222;
 	width: 33%;
 }
@@ -96,11 +108,20 @@ button {
 	float: left;
 }
 
+.start-game {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+}
+
 .player-balance,
 .player-current-bet,
 .player-total-bet {
 	float: right;
-	width: 80px;
+	width: 75px;
 	text-align: right;
 }
 
@@ -138,4 +159,12 @@ button {
 	background: #eee;
 	height: 150px;
 	width: 100%;
+}
+
+.player-name input {
+  width: 55px;
+}
+
+.not-playing {
+  background: #ddd;
 }

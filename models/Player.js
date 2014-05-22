@@ -5,7 +5,9 @@ module.exports = Omni.Model.extend({
 		name: "Player",
 		balance: 100,
 		isDealer: false,
-		isActive: false
+		isActive: false,
+    isFolded: false,
+    isPlaying: true,
 	},
 	readPermission: function() {
 		return true;

@@ -4,42 +4,31 @@
     this.game = game;
     this.playerViews = [];
     this.activePlayerIndex = null;
+    this.fakePlayerView = null;
 
     var _this = this;
     Omni.collections.players.each(function(player) {
-      if (!this.activePlayerIndex) _this.setActivePlayer(player);
       _this.playerViews.push(new PlayerView(player));
     });
+
+    if (!this.game.get("active")) {
+      this.fakePlayerView = new PlayerView(null); // new player prior to login
+    }
 
     Omni.collections.players.on("add", function(player) {
-      if (!this.activePlayerIndex) _this.setActivePlayer(player);
       _this.playerViews.push(new PlayerView(player));
     });
 
-    if (Omni.collections.players.length > 0 && !this.activePlayerIndex) {
-      _this.setActivePlayer(Omni.collections.players.at(0));
-    }
+    this.$el.find("#stop-playing").hide();
 
     this.render();
+
     this.game.on("change", this.render.bind(this));
+    this.game.on("change:active", this.preventNewPlayers.bind(this));
 
     this.$el.find(".check-bet").on("click", this.onCheckOrBet.bind(this));
-  };
-
-  GameView.prototype.setActivePlayer = function(index) {
-    if (index.get) {
-      // It's a player object
-      this.activePlayerIndex = index.get("id");
-    } else {
-      // It's a number
-      this.activePlayerIndex = index;
-    }
-
-    Omni.collections.players.each(function(player) {
-      player.set("isActive", false);
-    });
-
-    // this.getActivePlayer().set("isActive", true);
+    this.$el.find(".start-game").on("click", this.startGame.bind(this));
+    this.$el.find("#stop-playing").on("click", this.stopPlaying.bind(this));
   };
 
   GameView.prototype.getActivePlayer = function() {
@@ -49,12 +38,42 @@
     return false;
   };
 
+  GameView.prototype.stopPlaying = function() {
+    Omni.trigger("stopPlaying");
+    this.$el.find("#stop-playing").hide();
+  };
+
+  GameView.prototype.startGame = function() {
+    this.game.set("active", true);
+  };
+
+  GameView.prototype.preventNewPlayers = function(game) {
+    if (game.get("active")) {
+      this.fakePlayerView.cleanup();
+      this.fakePlayerView = null;
+    } else if (!this.fakePlayerView) {
+      this.fakePlayerView = new PlayerView(null); // new player prior to login
+    }
+  }
+
   GameView.prototype.onCheckOrBet = function() {
 
   };
 
   GameView.prototype.render = function() {
     this.$el.find(".pot").html(this.game.get("pot"));
+
+    if (this.game.get("active")) {
+      this.$el.find(".start-game").hide();
+    } else {
+      this.$el.find(".start-game").show();
+    }
+
+    if (window.player && this.game.get("active") && window.player.get("isPlaying")) {
+      this.$el.find("#stop-playing").show();
+    } else if (window.player && this.get.get("active")){
+      this.$el.find("#stop-playing").hide();
+    }
   };
 
 

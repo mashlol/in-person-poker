@@ -2,9 +2,10 @@ var Omni = require("omni");
 
 module.exports = Omni.Model.extend({
 	defaults: {
-		pot: 0
+		pot: 0,
+    active: false,
 	},
-	readPermission: function() {
+	readPermission: function(connection, property) {
 		return true;
 	},
 	writePermission: function() {
