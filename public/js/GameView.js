@@ -8,7 +8,7 @@
 
     var _this = this;
     Omni.collections.players.each(function(player) {
-      _this.playerViews.push(new PlayerView(player));
+      _this.addPlayer(player);
     });
 
     if (!this.game.get("active")) {
@@ -16,12 +16,14 @@
     }
 
     Omni.collections.players.on("add", function(player) {
-      _this.playerViews.push(new PlayerView(player));
+      _this.addPlayer(player);
+    });
+
+    Omni.collections.players.on("remove", function(player) {
+      _this.removePlayer(player);
     });
 
     this.$el.find("#stop-playing").hide();
-
-    this.render();
 
     this.game.on("change", this.render.bind(this));
     this.game.on("change:active", this.preventNewPlayers.bind(this));
@@ -29,6 +31,8 @@
     this.$el.find(".check-bet").on("click", this.onCheckOrBet.bind(this));
     this.$el.find(".start-game").on("click", this.startGame.bind(this));
     this.$el.find("#stop-playing").on("click", this.stopPlaying.bind(this));
+
+    this.render();
   };
 
   GameView.prototype.getActivePlayer = function() {
@@ -37,6 +41,27 @@
     }
     return false;
   };
+
+  GameView.prototype.addPlayer = function(player) {
+    var _this = this;
+    _this.playerViews.push(new PlayerView(player));
+    // We need to render when isPlaying changes so we
+    // can update the sitting/standing button
+    player.on("change:isPlaying", function(player) {
+      _this.render();
+    });
+  }
+
+  GameView.prototype.removePlayer = function(player) {
+    for (var x in this.playerViews) {
+      var playerView = this.playerViews[x];
+      if (playerView.player.get("name") == player.get("name")) {
+        playerView.cleanup();
+        this.playerViews.slice(x, 1);
+        return;
+      }
+    }
+  }
 
   GameView.prototype.stopPlaying = function() {
     Omni.trigger("stopPlaying");
@@ -48,11 +73,9 @@
   };
 
   GameView.prototype.preventNewPlayers = function(game) {
-    if (game.get("active")) {
+    if (game.get("active") && this.fakePlayerView) {
       this.fakePlayerView.cleanup();
       this.fakePlayerView = null;
-    } else if (!this.fakePlayerView) {
-      this.fakePlayerView = new PlayerView(null); // new player prior to login
     }
   }
 
@@ -71,7 +94,7 @@
 
     if (window.player && this.game.get("active") && window.player.get("isPlaying")) {
       this.$el.find("#stop-playing").show();
-    } else if (window.player && this.get.get("active")){
+    } else {
       this.$el.find("#stop-playing").hide();
     }
   };
