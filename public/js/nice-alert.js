@@ -7,7 +7,7 @@ window.alert = function(message) {
 		transition: "all 200ms ease-in-out",
 		position: "fixed",
 		bottom: 0, left: 0,
-		padding: "10px",
+		padding: "12px",
 		"text-align": "center",
 		"box-sizing": "border-box",
 		"z-index": "9999"

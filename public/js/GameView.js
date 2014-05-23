@@ -69,7 +69,11 @@
   };
 
   GameView.prototype.startGame = function() {
-    this.game.set("active", true);
+    if (Omni.collections.players.length >= 2) {
+      this.game.set("active", true);
+    } else {
+      alert("You need at least two players!");
+    }
   };
 
   GameView.prototype.preventNewPlayers = function(game) {
