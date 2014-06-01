@@ -14,25 +14,25 @@ games.add({});
 var players = new Players();
 
 Omni.listen(3000, {
-	players: players,
-	games: games
+    players: players,
+    games: games
 }, {
-  login: loginEvent,
-  stopPlaying: stopPlaying,
-  disconnect: disconnect,
-  betRaise: betRaiseEvent,
-  callCheck: callCheckEvent,
-  fold: foldEvent
+    login: loginEvent,
+    stopPlaying: stopPlaying,
+    disconnect: disconnect,
+    betRaise: betRaiseEvent,
+    callCheck: callCheckEvent,
+    fold: foldEvent
 });
 
 players.on("add", function(player) {
-	player.on("change:isPlaying", function(player) {
-		games.at(0)._updateActive();
-	});
+    player.on("change:isPlaying", function(player) {
+        games.at(0)._updateActive();
+    });
 });
 
 players.on("add", function(player) {
-	player.on("change:isPlaying", function(player) {
-		games.at(0)._updateActive();
-	});
+    player.on("change:isPlaying", function(player) {
+        games.at(0)._updateActive();
+    });
 });

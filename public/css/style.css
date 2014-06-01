@@ -5,16 +5,16 @@
 }
 
 body {
-	background: #eee;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 200;
-	font-size: 11px;
-	overflow-y: auto;
-	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    background: #eee;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    overflow-y: auto;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 }
 
 body::-webkit-scrollbar {
-	width: 0 !important;
+    width: 0 !important;
     display: none !important;
 }
 
@@ -23,15 +23,15 @@ body::-webkit-scrollbar {
 }
 
 .header {
-	position: fixed;
-	height: 50px;
-	width: 100%;
-	background: #c0392b;
-	top: 0;
-	color: #fff;
-	line-height: 50px;
-	text-align: center;
-	z-index: 1;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background: #c0392b;
+    top: 0;
+    color: #fff;
+    line-height: 50px;
+    text-align: center;
+    z-index: 1;
 }
 
 .header #stop-playing {
@@ -47,65 +47,65 @@ body::-webkit-scrollbar {
 }
 
 button {
-	padding: 10px;
-	background: none;
-	border: none;
-	color: #222;
-	width: 33%;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #222;
+    width: 33%;
 }
 
 .body {
-	margin-top: 50px;
-	padding: 10px;
+    margin-top: 50px;
+    padding: 10px;
 }
 
 .pot {
-	padding: 10px;
-	text-align: center;
-	background: #fff;
-	box-shadow: 0 3px 9px -6px #888;
-	margin-bottom: 10px;
-	position: fixed;
-	top: 60px;
-	width: calc(100% - 20px);
-	left: 10px;
+    padding: 10px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 3px 9px -6px #888;
+    margin-bottom: 10px;
+    position: fixed;
+    top: 60px;
+    width: calc(100% - 20px);
+    left: 10px;
 }
 
 .player-header {
-	position: fixed;
-	top: 110px;
-	width: calc(100% - 20px);
-	left: 10px;
+    position: fixed;
+    top: 110px;
+    width: calc(100% - 20px);
+    left: 10px;
 }
 
 .pot:before {
-	display: inline-block;
-	content: "Pot:";
-	margin-right: 5px;
+    display: inline-block;
+    content: "Pot:";
+    margin-right: 5px;
 }
 
 .player {
-	padding: 10px;
-	background: #fff;
-	height: 42px;
-	border-bottom: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+    height: 42px;
+    border-bottom: 1px solid #ccc;
 }
 
 .footer {
-	position: fixed;
-	background: #fff;
-	width: 100%;
-	border-top: 3px solid #c0392b;
-	bottom: 0;
-	font-size: 0;
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    border-top: 3px solid #c0392b;
+    bottom: 0;
+    font-size: 0;
 }
 
 .player-header > div {
-	font-weight: 400;
+    font-weight: 400;
 }
 
 .player-name {
-	float: left;
+    float: left;
 }
 
 .start-game {
@@ -120,45 +120,45 @@ button {
 .player-balance,
 .player-current-bet,
 .player-total-bet {
-	float: right;
-	width: 75px;
-	text-align: right;
+    float: right;
+    width: 75px;
+    text-align: right;
 }
 
 .player-total-bet {
-	color: #e74c3c;
+    color: #e74c3c;
 }
 
 .player-current-bet {
-	color: #e74c3c;
+    color: #e74c3c;
 }
 
 .player-balance {
-	color: #1abc9c;
+    color: #1abc9c;
 }
 
 .player.folded {
-	background: #ddd;
+    background: #ddd;
 }
 
 .player.active .player-name {
-	color:  #e74c3c;
-	font-weight: 400;
+    color:  #e74c3c;
+    font-weight: 400;
 }
 
 .players {
-	margin-top: 90px;
-	margin-bottom: 50px;
+    margin-top: 90px;
+    margin-bottom: 50px;
 }
 
 .bg {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 0;
-	background: #eee;
-	height: 150px;
-	width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: #eee;
+    height: 150px;
+    width: 100%;
 }
 
 .player-name input {
