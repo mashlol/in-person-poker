@@ -4,11 +4,12 @@ var Games = require("./collections/Games.js");
 var loginEvent = require("./events/login.js");
 var stopPlaying = require("./events/stopPlaying.js");
 var disconnect = require("./events/disconnect.js");
+var callCheckEvent = require("./events/callCheck.js");
+var foldEvent = require("./events/fold.js");
+var betRaiseEvent = require("./events/betRaise.js");
 
 var games = new Games();
-games.add({
-	pot: 0
-});
+games.add({});
 
 var players = new Players();
 
@@ -18,16 +19,20 @@ Omni.listen(3000, {
 }, {
   login: loginEvent,
   stopPlaying: stopPlaying,
-  disconnect: disconnect
+  disconnect: disconnect,
+  betRaise: betRaiseEvent,
+  callCheck: callCheckEvent,
+  fold: foldEvent
 });
 
 players.on("add", function(player) {
 	player.on("change:isPlaying", function(player) {
-		if (players.where({isPlaying: true}).length < 2) {
-			players.each(function(player) {
-				player.set("isPlaying", true);
-			});
-			games.at(0).set("active", false);
-		}
+		games.at(0)._updateActive();
+	});
+});
+
+players.on("add", function(player) {
+	player.on("change:isPlaying", function(player) {
+		games.at(0)._updateActive();
 	});
 });

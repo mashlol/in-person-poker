@@ -1,7 +1,7 @@
 window.alert = function(message) {
 	var alertDiv = $("<div>").css({
 		width: "100%",
-		background: "#e74c3c",
+		background: "#c0392b",
 		color: "#fff",
 		transform: "translate3d(0,100%,0)",
 		transition: "all 200ms ease-in-out",

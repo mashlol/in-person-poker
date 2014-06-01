@@ -50,8 +50,8 @@
     } else {
       this.$el.addClass("not-playing");
     }
-    this.$el.find(".player-name").html(this.player.get("name"));
-    this.$el.find(".player-balance").html(this.player.get("balance"));
+    this.$el.find(".player-name").text(this.player.get("name"));
+    this.$el.find(".player-balance").text(this.player.get("balance"));
     if (this.player.get("isDealer")) {
       this.$el.addClass("dealer");
     } else {

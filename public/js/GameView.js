@@ -28,7 +28,9 @@
     this.game.on("change", this.render.bind(this));
     this.game.on("change:active", this.preventNewPlayers.bind(this));
 
-    this.$el.find(".check-bet").on("click", this.onCheckOrBet.bind(this));
+    this.$el.find(".call-check").on("click", this.onCallCheck.bind(this));
+    this.$el.find(".fold").on("click", this.onFold.bind(this));
+    this.$el.find(".bet-raise").on("click", this.onBetRaise.bind(this));
     this.$el.find(".start-game").on("click", this.startGame.bind(this));
     this.$el.find("#stop-playing").on("click", this.stopPlaying.bind(this));
 
@@ -57,7 +59,7 @@
       var playerView = this.playerViews[x];
       if (playerView.player.get("name") == player.get("name")) {
         playerView.cleanup();
-        this.playerViews.slice(x, 1);
+        this.playerViews.splice(x, 1);
         return;
       }
     }
@@ -83,8 +85,16 @@
     }
   }
 
-  GameView.prototype.onCheckOrBet = function() {
+  GameView.prototype.onCallCheck = function() {
+    Omni.trigger("callCheck");
+  };
 
+  GameView.prototype.onBetRaise = function() {
+    Omni.trigger("betRaise");
+  };
+
+  GameView.prototype.onFold = function() {
+    Omni.trigger("fold");
   };
 
   GameView.prototype.render = function() {
